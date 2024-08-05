@@ -1,6 +1,4 @@
 public class Lesson {
-    public Lesson() {
-    }
 
     public void printThreeWords() {
         System.out.println("Orange\nBanana\nApple");
@@ -14,7 +12,6 @@ public class Lesson {
         } else {
             System.out.println("Сумма отрицательная");
         }
-
     }
 
     public void printColor() {
@@ -26,7 +23,6 @@ public class Lesson {
         } else {
             System.out.println("Зеленый");
         }
-
     }
 
     public void compareNumbers() {
@@ -67,7 +63,7 @@ public class Lesson {
     }
 
     public void stringNum(int num, String string) {
-        for(int i = 0; i < num; ++i) {
+        for (int i = 0; i < num; ++i) {
             System.out.println(string);
         }
 
@@ -86,11 +82,11 @@ public class Lesson {
         System.out.print("Массив до изменения: ");
 
         int i;
-        for(i = 0; i < array.length; ++i) {
+        for (i = 0; i < array.length; ++i) {
             System.out.print(array[i] + " ");
         }
 
-        for(i = 0; i < array.length; ++i) {
+        for (i = 0; i < array.length; ++i) {
             if (array[i] == 1) {
                 array[i] = 0;
             } else {
@@ -100,7 +96,7 @@ public class Lesson {
 
         System.out.print("Массив после изменения: ");
 
-        for(i = 0; i < array.length; ++i) {
+        for (i = 0; i < array.length; ++i) {
             System.out.print(array[i] + " ");
         }
 
@@ -110,7 +106,7 @@ public class Lesson {
     public void arrayFill() {
         int[] newArray = new int[100];
 
-        for(int i = 0; i < newArray.length; ++i) {
+        for (int i = 0; i < newArray.length; ++i) {
             System.out.print((newArray[i] = i + 1) + " ");
         }
 
@@ -122,13 +118,13 @@ public class Lesson {
         System.out.print("Массив до изменения: ");
 
         int i;
-        for(i = 0; i < array.length; ++i) {
+        for (i = 0; i < array.length; ++i) {
             System.out.print(array[i] + " ");
         }
 
         System.out.print("Массив после изменения: ");
 
-        for(i = 0; i < array.length; ++i) {
+        for (i = 0; i < array.length; ++i) {
             if (array[i] < 6) {
                 array[i] *= 2;
             }
@@ -144,17 +140,17 @@ public class Lesson {
         int[][] matrix = new int[m][m];
 
         int i;
-        for(i = 0; i < m; ++i) {
+        for (i = 0; i < m; ++i) {
             matrix[i][i] = 1;
             matrix[i][m - i - 1] = 1;
         }
 
-        for(i = 0; i < m; ++i) {
+        for (i = 0; i < m; ++i) {
             matrix[i][m - i - 1] = 1;
         }
 
-        for(i = 0; i < m; ++i) {
-            for(int j = 0; j < m; ++j) {
+        for (i = 0; i < m; ++i) {
+            for (int j = 0; j < m; ++j) {
                 System.out.print(matrix[i][j] + " ");
             }
 
@@ -167,7 +163,7 @@ public class Lesson {
         String[] array = new String[len];
         System.out.print("Массив:");
 
-        for(int i = 0; i < len; ++i) {
+        for (int i = 0; i < len; ++i) {
             array[i] = initialValue;
             System.out.print(" " + array[i]);
         }
