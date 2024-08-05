@@ -15,13 +15,13 @@ public class Main {
         int sumA = sc.nextInt();
         System.out.print("Введите число b: ");
         int sumB = sc.nextInt();
-        lesson.SumChecker(sumA, sumB);
+        lesson.sumChecker(sumA, sumB);
         System.out.print("Введите число: ");
         int Rational = sc.nextInt();
-        lesson.RationalNumbers(Rational);
+        lesson.rationalNumbers(Rational);
         System.out.print("Введите число: ");
         int RationalBool = sc.nextInt();
-        lesson.RationalNumbersBoolean(RationalBool);
+        lesson.rationalNumbersBoolean(RationalBool);
         System.out.print("Введите число: ");
         int num = sc.nextInt();
         sc.nextLine();

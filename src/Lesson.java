@@ -40,12 +40,12 @@ public class Lesson {
 
     }
 
-    public boolean SumChecker(int a, int b) {
+    public boolean sumChecker(int a, int b) {
         System.out.println(a + b >= 10 && a + b <= 20);
         return a + b >= 10 && a + b <= 20;
     }
 
-    public void RationalNumbers(int a) {
+    public void rationalNumbers(int a) {
         if (a >= 0) {
             System.out.println("Число положительное");
         } else {
@@ -54,7 +54,7 @@ public class Lesson {
 
     }
 
-    public boolean RationalNumbersBoolean(int a) {
+    public boolean rationalNumbersBoolean(int a) {
         boolean result;
         if (a >= 0) {
             result = true;
