@@ -159,7 +159,7 @@ public class Lesson {
 
     }
 
-    public void initialValue(int len, String initialValue) {
+    public static String[] initialValue(int len, String initialValue) {
         String[] array = new String[len];
         System.out.print("Массив:");
 
@@ -167,6 +167,6 @@ public class Lesson {
             array[i] = initialValue;
             System.out.print(" " + array[i]);
         }
-
+        return array;
     }
 }

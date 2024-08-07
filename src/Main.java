@@ -42,3 +42,26 @@ public class Main {
         lesson.initialValue(len, initialValue);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
