@@ -1,37 +1,36 @@
 public class ArraySum {
-
     int sum = 0;
 
-    public void checkArray(String[][] array) throws MyArrayDataException {
-        //row
+    private void checkArray(String[][] array) throws MyArrayDataException, MyArraySizeException {
+        // Проверка размера массива
         if (array.length != 4) {
-                throw new MyArraySizeException ("MyArraySizeException");
+            throw new MyArraySizeException("MyArraySizeException Размер массива не равен 4х4");
         }
 
-        // col
         for (int i = 0; i < array.length; i++) {
             if (array[i].length != 4) {
-                throw new MyArraySizeException ("MyArraySizeException");
+                throw new MyArraySizeException("MyArraySizeException Размер массива не равен 4х4");
             }
         }
 
-        // sum
+        // Суммирование элементов массива
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 try {
                     sum += Integer.parseInt(array[i][j]);
                 } catch (NumberFormatException e) {
-                    throw new MyArrayDataException("MyArrayDataException ["+ i + "][" + j + "]");
+                    throw new MyArrayDataException("MyArrayDataException [" + i + "][" + j + "]");
                 }
             }
         }
     }
-    public int getSum() {
-        return sum;
+
+    public void printInfo(String[][] array) {
+        try {
+            checkArray(array);
+            System.out.println("Сумма всех элементов массива: " + sum);
+        } catch (MyArraySizeException | MyArrayDataException e) {
+            System.out.println(e.getMessage());
+        }
     }
-
 }
-
-
-
-
