@@ -2,18 +2,16 @@ public class ArraySum {
     int sum = 0;
 
     private void checkArray(String[][] array) throws MyArrayDataException, MyArraySizeException {
-        // Проверка размера массива
         if (array.length != 4) {
             throw new MyArraySizeException("MyArraySizeException Размер массива не равен 4х4");
         }
-
+        //извращение, но я старалась)
         for (int i = 0; i < array.length; i++) {
             if (array[i].length != 4) {
                 throw new MyArraySizeException("MyArraySizeException Размер массива не равен 4х4");
             }
         }
 
-        // Суммирование элементов массива
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 try {
