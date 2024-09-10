@@ -16,7 +16,7 @@ public class FactorialTest {
     }
 
     @Test
-    public void test_factorial3() {
+    public void test_factorial5() {
         Assert.assertEquals(120, fact.factorial(5));
     }
 
