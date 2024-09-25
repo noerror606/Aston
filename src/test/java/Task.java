@@ -93,7 +93,7 @@ public class Task {
         driver.switchTo().frame(frame);
 
         assertTrue(steps.isModalDisplayed(), "Модальное окно не отображается.");
-
+        assertEquals(steps.getSum(), "50.00 BYN", "Сумма в заголовке некорректна.");
         assertEquals(steps.getSumOnButton(), "Оплатить 50.00 BYN", "Сумма на кнопке некорректна.");
         assertEquals(steps.getPhoneNumber(), "Оплата: Услуги связи Номер:375297777777", "Номер телефона некорректен.");
 

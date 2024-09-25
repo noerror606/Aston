@@ -101,6 +101,10 @@ public class Steps {
         return payPopup.isModalDisplayed();
     }
 
+    public String getSum(){
+        return payPopup.getSum();
+    }
+
     public String getSumOnButton() {
         return payPopup.getSumOnButton();
     }
