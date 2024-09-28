@@ -1,0 +1,80 @@
+package org.example.page;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class PayPopup extends BasePage {
+    private final By modalWindow = By.xpath("//div[@class='app-wrapper__content-container " +
+            "app-wrapper__content-container_full']//section[@class='payment-page payment-page_mobile payment-page_pays']");
+    private final By sumOnButton = By.xpath("//button[contains(@class, 'colored') " +
+            "and contains(text(), 'Оплатить  50.00 BYN')]");
+    private final By sum = By.xpath("/html/body/app-root/div/div/div/app-payment-container/section/div/div/div[1]/span[1]");
+    private final By phoneNumber = By.xpath("//div[contains(@class, 'pay-description__text')]" +
+            "//span[contains(text(), 'Номер:375297777777')]");
+
+    public PayPopup(WebDriver driver) {
+        super(driver);
+    }
+
+    public boolean isModalDisplayed() {
+        WebElement modal = wait.until(ExpectedConditions.visibilityOfElementLocated(modalWindow));
+        return modal.isDisplayed();
+    }
+    public String getSum() {
+        return waitForElementToBeVisible(driver.findElement(sum)).getText();
+    }
+
+    public String getSumOnButton() {
+        return waitForElementToBeVisible(driver.findElement(sumOnButton)).getText();
+    }
+
+    public String getPhoneNumber() {
+        return waitForElementToBeVisible(driver.findElement(phoneNumber)).getText();
+    }
+
+    public boolean verifyCardPlaceholders(String[] expectedPlaceholders) {
+        List<String> actualPlaceholders = new ArrayList<>();
+        List<WebElement> labels = driver.findElements(By.xpath("//label"));
+        for (WebElement label : labels) {
+            actualPlaceholders.add(label.getText());
+        }
+        for (String expectedPlaceholder : expectedPlaceholders) {
+            if (!actualPlaceholders.contains(expectedPlaceholder)) {
+                System.out.println("Ожидаемый placeholder не найден: " + expectedPlaceholder);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean verifyPaymentIcons(String[] expectedIcons) {
+        List<WebElement> icons = driver.findElements(By.xpath("//div[@class='cards-brands__container']//img"));
+        List<String> actualIcons = new ArrayList<>();
+
+        for (WebElement icon : icons) {
+            String src = icon.getAttribute("src");
+            if (src != null) {
+                if (src.contains("visa-system")) {
+                    actualIcons.add("Visa");
+                } else if (src.contains("mastercard-system")) {
+                    actualIcons.add("MasterCard");
+                } else if (src.contains("belkart-system")) {
+                    actualIcons.add("Белкарт");
+                } else if (src.contains("maestro-system")) {
+                    actualIcons.add("Maestro");
+                } else if (src.contains("mir-system-ru")) {
+                    actualIcons.add("Мир");
+                }
+            }
+        }
+        return Arrays.asList(expectedIcons).containsAll(actualIcons);
+    }
+}
